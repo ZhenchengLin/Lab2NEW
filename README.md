@@ -22,4 +22,4 @@ Reading the implementation, I notice that this code will not add all numbers tha
 ## Part Three
 I have learn using assertEquals in cse 12 but I have learn many new stuff!!  
 One importent thing I think it is extramly important is the use of Git hub.  
-Another stuff that I think is also important is the skills of making webs.
+Another stuff that I think is also important is the skills of making webs.  
