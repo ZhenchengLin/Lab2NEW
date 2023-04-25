@@ -15,7 +15,7 @@
 ## Part two
 In week 3 lab, we have been woking on fixing bugs and learning how to use eclipse. 
 
-One of the bug that we have to fix is below..
+One of the bug that we have to fix is below..  
 ![Image](2LabC.png)  
 Reading the implementation, I notice that this code will not add all numbers thats equals to the lowest number which is buggy. Later I added a checker to clear the bug.
 
