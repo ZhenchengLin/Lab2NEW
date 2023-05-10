@@ -2,7 +2,7 @@
 
 ## Part One  
 ### Code for [**StringServer**](StringServer.java)  
-#### Using the /add-message
+#### *Using the /add-message*
 -> The following two screenshot is calling the method in StringServer.java class.  
 Inside that class I have lots of different If statment that use to read the URL.  
 Then one of the if statement is use to check did we type add-message in URL then  
@@ -23,6 +23,9 @@ This code will return `"Error! did not add"` if we didn't have s in Query.
 **If we use equal when we checking `s` form the Query**.  
 <img width="461" alt="image" src="https://github.com/ZhenchengLin/Lab2NEW/assets/130115215/38b51ebb-64d0-4644-abdf-ae2e9f6464b0">
 <img width="519" alt="image" src="https://github.com/ZhenchengLin/Lab2NEW/assets/130115215/52b40532-b0ed-4ccc-a7f0-9c1f49e55cbd">  
+
+#### *After using*
+
 
 ## Part two
 In week 3 lab, we have been woking on fixing bugs and learning how to use eclipse. 
