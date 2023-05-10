@@ -1,6 +1,10 @@
 # **Lab Two**
 
 ## Part One  
+### Code for [**StringServer**](StringServer.java)
+<img width="743" alt="image" src="https://github.com/ZhenchengLin/Lab2NEW/assets/130115215/692a5a13-137c-4279-8b37-23d271ba710c">
+
+#### Using the /add-message
 
 
 ## Part two
