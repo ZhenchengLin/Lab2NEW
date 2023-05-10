@@ -21,7 +21,8 @@ Later we split the Query with method `split()` then added to the array list `s`.
 This code will return `"Error! did not add"` if we didn't have s in Query.
 
 **If we use equal when we checking `s` form the Query**.  
-
+<img width="461" alt="image" src="https://github.com/ZhenchengLin/Lab2NEW/assets/130115215/38b51ebb-64d0-4644-abdf-ae2e9f6464b0">
+<img width="519" alt="image" src="https://github.com/ZhenchengLin/Lab2NEW/assets/130115215/52b40532-b0ed-4ccc-a7f0-9c1f49e55cbd">  
 
 ## Part two
 In week 3 lab, we have been woking on fixing bugs and learning how to use eclipse. 
