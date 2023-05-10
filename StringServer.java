@@ -6,18 +6,18 @@ class Handler implements URLHandler {
     // The one bit of state on the server: a number that will be manipulated by
     // various requests.
     ArrayList<String> s = new ArrayList<>();
-    ArrayList<String> sLab = new ArrayList<>();
+    
 
     public String handleRequest(URI url) 
     {
         if (url.getPath().equals("/")) 
         {
             String words = "";
-            if(sLab.size() == 0)
+            if(s.size() == 0)
             {
                 return String.format("Nothing added yet.");
             }
-            for(String word : sLab)
+            for(String word : s)
             {
                 words += "\n" + word ;
             }
@@ -51,16 +51,16 @@ class Handler implements URLHandler {
         }
         else if (url.getPath().equals("/add-message")) 
         {
-            if (url.getQuery().contains("sLab")) 
+            if (url.getQuery().contains("s")) 
             {
                 String[] parameters = url.getQuery().split("=");
-                if (parameters[0].equals("sLab"))
+                if (parameters[0].equals("s"))
                  {
-                    sLab.add(parameters[1]);
+                    s.add(parameters[1]);
                     return "Added.";
                 }
             }
-            return "add?";
+            return "Error! did not add";
         }
          else 
         {
