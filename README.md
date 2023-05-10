@@ -24,9 +24,15 @@ This code will return `"Error! did not add"` if we didn't have s in Query.
 <img width="461" alt="image" src="https://github.com/ZhenchengLin/Lab2NEW/assets/130115215/38b51ebb-64d0-4644-abdf-ae2e9f6464b0">
 <img width="519" alt="image" src="https://github.com/ZhenchengLin/Lab2NEW/assets/130115215/52b40532-b0ed-4ccc-a7f0-9c1f49e55cbd">  
 
-#### *After using*
-
-
+#### *After Added All The Message*
+In our main page of the websit we will have the messages we added.  
+<img width="519" alt="image" src="https://github.com/ZhenchengLin/Lab2NEW/assets/130115215/fa110fd2-c525-4737-8155-87598a86975e">
+Which is matching the following code:
+<img width="515" alt="image" src="https://github.com/ZhenchengLin/Lab2NEW/assets/130115215/c82a0861-239f-40ae-848f-add1ac062545">
+I use the same Idea of checking the path; which is checking see if the path have anything in it.
+When we checked we are in the main page, we start checking if we added any message or words yet.  
+If we checked that we have something in the arrayList that we use to added message in, then  
+we use a loop to print out all the words thats in the ArrayList which call `s`.
 ## Part two
 In week 3 lab, we have been woking on fixing bugs and learning how to use eclipse. 
 
