@@ -1,7 +1,93 @@
 # **Lab Two**
 
 ## Part One  
-### Code for [**StringServer**](StringServer.java)  
+### Code for [**StringServer**](StringServer.java) 
+```import java.io.IOException;
+import java.net.URI;
+import java.util.ArrayList;
+
+class Handler implements URLHandler {
+    // The one bit of state on the server: a number that will be manipulated by
+    // various requests.
+    ArrayList<String> s = new ArrayList<>();
+    
+
+    public String handleRequest(URI url) 
+    {
+        if (url.getPath().equals("/")) 
+        {
+            String words = "";
+            if(s.size() == 0)
+            {
+                return String.format("Nothing added yet.");
+            }
+            for(String word : s)
+            {
+                words += "\n" + word ;
+            }
+            return String.format(words);
+        } 
+        else if (url.getPath().equals("/add")) 
+        {
+            if (url.getQuery().contains("s")) 
+            {
+                String[] parameters = url.getQuery().split("=");
+                if (parameters[0].equals("s"))
+                 {
+                    s.add(parameters[1]);
+                    return "Added.";
+                }
+            }
+            return "add?";
+        }
+        else if (url.getPath().equals("/search")) 
+        {
+            String words = "Added words are listed below: \n";
+            if(s.size() != 0)
+            {
+                for(String word : s)
+                {
+                    words += "\n" + word ;
+                }
+                return String.format(words);
+            }
+            return "Not added anything yet";
+        }
+        else if (url.getPath().equals("/add-message")) 
+        {
+            if (url.getQuery().contains("s")) 
+            {
+                String[] parameters = url.getQuery().split("=");
+                if (parameters[0].equals("s"))
+                 {
+                    s.add(parameters[1]);
+                    return "Added.";
+                }
+            }
+            return "Error! did not add";
+        }
+         else 
+        {
+            return "404 Not Found!";
+        }
+    }
+}
+
+
+public class StringServer 
+{
+    public static void main(String[] args) throws IOException {
+    if(args.length == 0){
+        System.out.println("Missing port number! Try any number between 1024 to 49151");
+        return;
+    }
+
+    int port = Integer.parseInt(args[0]);
+
+    Server.start(port, new Handler());
+    }
+}
+```
 #### *Using the /add-message*
 -> The following two screenshot is calling the method in StringServer.java class.  
 Inside that class I have lots of different If statment that use to read the URL.  
@@ -37,7 +123,43 @@ we use a loop to print out all the words thats in the ArrayList which call `s`.
 
 
 ## Part two
+### Failure inducing input JUnit test  
+**Code**  
+```
+@Test
+  public void testForAverageLength()
+  {
+    double[] input1 = { 2.0 , 2.0 , 4.0};
+    assertEquals(3.0, ArrayExamples.averageWithoutLowest(input1), 0.0001);
+  }
+  ```  
+  **Failure**
+  ```
+  (base) zhenchenglin@ZhenchengdeMacBook-Pro lab3 % javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java
+(base) zhenchenglin@ZhenchengdeMacBook-Pro lab3 % -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ArrayTests
+__vsc_escape_value:print:21: bad option: - 
+zsh: command not found: -cp
+(base) zhenchenglin@ZhenchengdeMacBook-Pro lab3 % -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ArrayTests
+__vsc_escape_value:print:21: bad option: - 
+zsh: command not found: -cp
+(base) zhenchenglin@ZhenchengdeMacBook-Pro lab3 % java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ArrayTests
+JUnit version 4.13.2
+.....E
+Time: 0.006
+There was 1 failure:
+1) testForAverageLength(ArrayTests)
+java.lang.AssertionError: expected:<3.0> but was:<2.0>
+        at org.junit.Assert.fail(Assert.java:89)
+        at org.junit.Assert.failNotEquals(Assert.java:835)
+        at org.junit.Assert.assertEquals(Assert.java:555)
+        at org.junit.Assert.assertEquals(Assert.java:685)
+        at ArrayTests.testForAverageLength(ArrayTests.java:39)
 
+FAILURES!!!
+Tests run: 5,  Failures: 1
+```  
+  ### 
+  
 
 ## Part Three
 I have learn using assertEquals in cse 12 but I have learn many new stuff!!  
