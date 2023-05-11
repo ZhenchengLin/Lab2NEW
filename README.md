@@ -16,7 +16,8 @@ the method take in the variable and store in the array list.
 
 ->Reading above code: In the `else if` we use `url.getPath().equals()` to check if the path is the path that we want to use.  
 Then I use another if statment to check if the Query is starting with `s` and there are a `=` after it.  
-Using the following method: `url.getQuery().contains("s")` **Warning** we will not be using `equals()` to check because we juse want to make sure it has a s starting  
+Using the following method: `url.getQuery().contains("s")` which `s` is what we want.  
+**Warning** we will not be using `equals()` to check because we juse want to make sure it has a s starting  
 Later we split the Query with method `split()` then added to the array list `s`.  
 This code will return `"Error! did not add"` if we didn't have s in Query.
 
@@ -28,17 +29,15 @@ This code will return `"Error! did not add"` if we didn't have s in Query.
 In our main page of the websit we will have the messages we added.  
 <img width="519" alt="image" src="https://github.com/ZhenchengLin/Lab2NEW/assets/130115215/fa110fd2-c525-4737-8155-87598a86975e">
 Which is matching the following code:
-<img width="515" alt="image" src="https://github.com/ZhenchengLin/Lab2NEW/assets/130115215/c82a0861-239f-40ae-848f-add1ac062545">
-I use the same Idea of checking the path; which is checking see if the path have anything in it.
+<img width="515" alt="image" src="https://github.com/ZhenchengLin/Lab2NEW/assets/130115215/c82a0861-239f-40ae-848f-add1ac062545">  
+I use the same Idea of checking the path; which is checking see if the path have anything in it.  
 When we checked we are in the main page, we start checking if we added any message or words yet.  
 If we checked that we have something in the arrayList that we use to added message in, then  
-we use a loop to print out all the words thats in the ArrayList which call `s`.
-## Part two
-In week 3 lab, we have been woking on fixing bugs and learning how to use eclipse. 
+we use a loop to print out all the words thats in the ArrayList which call `s`.  
 
-One of the bug that we have to fix is below..  
-![Image](2LabC.png)  
-Reading the implementation, I notice that this code will not add all numbers thats equals to the lowest number which is buggy. Later I added a checker to clear the bug.
+
+## Part two
+
 
 ## Part Three
 I have learn using assertEquals in cse 12 but I have learn many new stuff!!  
