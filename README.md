@@ -135,13 +135,7 @@ we use a loop to print out all the words thats in the ArrayList which call `s`.
   ```  
   **Failure**
   ```
-  (base) zhenchenglin@ZhenchengdeMacBook-Pro lab3 % javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java
-(base) zhenchenglin@ZhenchengdeMacBook-Pro lab3 % -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ArrayTests
-__vsc_escape_value:print:21: bad option: - 
-zsh: command not found: -cp
-(base) zhenchenglin@ZhenchengdeMacBook-Pro lab3 % -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ArrayTests
-__vsc_escape_value:print:21: bad option: - 
-zsh: command not found: -cp
+(base) zhenchenglin@ZhenchengdeMacBook-Pro lab3 % javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java
 (base) zhenchenglin@ZhenchengdeMacBook-Pro lab3 % java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ArrayTests
 JUnit version 4.13.2
 .....E
@@ -158,9 +152,77 @@ java.lang.AssertionError: expected:<3.0> but was:<2.0>
 FAILURES!!!
 Tests run: 5,  Failures: 1
 ```  
-  ### 
-  
+### Input that does not induce failure JUnit test  
+**Code**  
+```
+ @Test
+  public void testForAverageLength2()
+  {
+    double[] input1 = { 2.0 , 3.0 , 4.0};
+    assertEquals(3.5, ArrayExamples.averageWithoutLowest(input1), 0.0001);
+  }
+  ```
+**Passed** Which it does not fail
+```
+(base) zhenchenglin@ZhenchengdeMacBook-Pro lab3 % javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java                              
+(base) zhenchenglin@ZhenchengdeMacBook-Pro lab3 % java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ArrayTests
+JUnit version 4.13.2
+......E
+Time: 0.007
+There was 1 failure:
+1) testForAverageLength(ArrayTests)
+java.lang.AssertionError: expected:<3.0> but was:<2.0>
+        at org.junit.Assert.fail(Assert.java:89)
+        at org.junit.Assert.failNotEquals(Assert.java:835)
+        at org.junit.Assert.assertEquals(Assert.java:555)
+        at org.junit.Assert.assertEquals(Assert.java:685)
+        at ArrayTests.testForAverageLength(ArrayTests.java:39)
 
+FAILURES!!!
+Tests run: 6,  Failures: 1
+```  
+### Here is a picture of running both test
+<img width="1049" alt="image" src="https://github.com/ZhenchengLin/Lab2NEW/assets/130115215/1fd9d6cb-13d5-4b91-b57a-d97838227d2b">  
+
+### This is the code before fix
+```
+  static double averageWithoutLowest(double[] arr) {
+    if(arr.length < 2) { return 0.0; }
+    double lowest = arr[0];
+    for(double num: arr) {
+      if(num < lowest) { lowest = num; }
+    }
+    double sum = 0;
+    for(double num: arr) {
+      if(num != lowest) { sum += num; }
+    }
+    return sum / (arr.length - 1);
+  }
+
+```
+
+### This is a fixed code
+```
+  static double averageWithoutLowest(double[] arr) {
+    if(arr.length < 2) { return 0.0; }
+    double lowest = arr[0];
+    for(double num: arr) {
+      if(num < lowest) { lowest = num; }
+    }
+    double sum = 0;
+    boolean checkLow = false;
+    for(double num: arr) {
+      if(num == lowest && checkLow == false) 
+      { 
+        checkLow = true;
+      }
+      else{
+        sum += num;
+      }
+    }
+    return sum / (arr.length - 1);
+  }
+```
 ## Part Three
 I have learn using assertEquals in cse 12 but I have learn many new stuff!!  
 One importent thing I think it is extramly important is the use of Git hub.  
