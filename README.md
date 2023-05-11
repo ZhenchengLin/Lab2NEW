@@ -223,6 +223,8 @@ Tests run: 6,  Failures: 1
     return sum / (arr.length - 1);
   }
 ```
+** Before the code was fixed it has a wrong behavir that will not add all the smallest number.  **
+** Which it should not happen, therefore I added a checker in the second loop for making sure that the will only kick out the smallest number once in the loop **  
 ## Part Three
 I have learn using assertEquals in cse 12 but I have learn many new stuff!!  
 One importent thing I think it is extramly important is the use of Git hub.  
