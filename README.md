@@ -2,7 +2,8 @@
 
 ## Part One  
 ### Code for [**StringServer**](StringServer.java) 
-```import java.io.IOException;
+```
+import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
 
@@ -223,6 +224,15 @@ Tests run: 6,  Failures: 1
     return sum / (arr.length - 1);
   }
 ```
+**Just want to make it clear to see**  
+```
+if(num == lowest && checkLow == false) 
+      { 
+        checkLow = true;
+      }
+```
+I added this in the middle of the code.  
+
 **Before the code was fixed it has a wrong behavir that will not add all the smallest number.**  
 **Which it should not happen, therefore I added a checker in the second loop for making sure that the will only kick out the smallest number once in the loop**  
 
